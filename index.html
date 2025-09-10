@@ -1,67 +1,266 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>GuardianEye — The Eye That Never Sleeps</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GuardianEye — AI-Powered Real-Time Safety</title>
+  <meta name="description" content="GuardianEye: AI-powered real-time safety with instant alerts for schools, elder care and communities. Start a 90-day pilot for $250." />
+  <link rel="preload" as="image" href="assets/copilot_image_1757525514722.jpeg" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0a0f1e;
-      color: #f0f0f0;
-      text-align: center;
+    :root{
+      --bg:#07111d;
+      --bg-soft:#0b1a2b;
+      --card:#0f2238;
+      --text:#dff1ff;
+      --muted:#9bc0e8;
+      --primary:#29a3ff;
+      --primary-2:#0aa2ff;
+      --accent:#00e0ff;
+      --good:#31d0a0;
+      --warn:#ffcf5a;
+      --danger:#ff6b6b;
+      --shadow:0 18px 40px rgba(0,20,50,.35);
+      --radius:18px;
+      --ring:0 0 0 2px rgba(0,160,255,.35), 0 12px 36px rgba(0,120,240,.25);
     }
-    header {
-      padding: 20px;
-      background: #111827;
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:radial-gradient(1200px 700px at 70% -10%,rgba(0,150,255,.12),transparent 60%), var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1120px;margin:0 auto;padding:20px}
+    .nav{position:sticky;top:0;backdrop-filter:blur(8px);background:linear-gradient(180deg,rgba(7,17,29,.85),rgba(7,17,29,.6));border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    .navrow{display:flex;align-items:center;gap:14px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;border-radius:12px;box-shadow:var(--ring)}
+    .brand span{font-weight:800;letter-spacing:.6px}
+    .nav a.btn{padding:10px 14px;background:linear-gradient(180deg,var(--primary),#157bff);border-radius:12px;color:white;font-weight:700;box-shadow:var(--ring)}
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .hero{padding:48px 20px 28px}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+    .hero-card{background:linear-gradient(180deg,#081627,#091b30);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+    .logo-box{display:flex;justify-content:center;align-items:center;margin:6px auto 14px}
+    .logo-box img{width:min(520px,92%);height:auto;filter:drop-shadow(0 12px 40px rgba(0,160,255,.28))}
+    .kicker{color:var(--accent);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase}
+    h1{margin:.35rem 0 0;font-size:clamp(1.9rem,3.2vw+1rem,3.2rem);line-height:1.1;text-shadow:0 2px 14px rgba(5,170,255,.18)}
+    .lede{color:var(--muted);max-width:62ch;margin:.7rem 0 1.1rem}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.06);background:linear-gradient(180deg,var(--primary),var(--primary-2));box-shadow:var(--ring);color:#fff;font-weight:800}
+    .btn.secondary{background:transparent;color:var(--text)}
+    .btn.secondary:hover{border-color:rgba(255,255,255,.16)}
+    .video-card{background:linear-gradient(180deg,#081a2e,#08192a);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
+    video{width:100%;display:block;border-radius:14px;background:#0b1e33}
+    .grid{display:grid;gap:16px}
+    .features{padding:10px 20px 34px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:linear-gradient(180deg,#0a1f35,#0a2137);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:.3rem 0 .25rem;font-size:1.05rem}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(48,208,160,.14);color:var(--good);font-weight:700;font-size:.78rem;margin-bottom:6px}
+    .section-title{font-size:1.6rem;margin:8px 0 12px}
+    .usecases{padding:10px 20px 34px}
+    .pricing{padding:8px 20px 40px}
+    .pricebox{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .price{font-size:2.4rem;font-weight:900}
+    .small{color:var(--muted);font-size:.92rem}
+    .contact{padding:8px 20px 40px}
+    form{display:grid;gap:12px}
+    input,textarea{background:#0a1f35;border:1px solid rgba(255,255,255,.08);color:var(--text);padding:12px 14px;border-radius:12px}
+    footer{padding:26px 20px;color:#8fbbe6;border-top:1px solid rgba(255,255,255,.06);background:#07111d}
+    .foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+    .note{font-size:.86rem;color:#8fbbe6}
+    .trust{display:flex;gap:10px;align-items:center}
+    .trust span{padding:6px 10px;border:1px dashed rgba(255,255,255,.12);border-radius:12px}
+    /* responsive */
+    @media (max-width:950px){
+      .hero-inner,.pricebox{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
     }
-    h1 {
-      font-size: 2.5em;
-      margin: 20px 0 10px;
-      color: #00c2ff;
-    }
-    p {
-      font-size: 1.2em;
-      color: #bbb;
-    }
-    video {
-      margin: 30px 0;
-      border-radius: 12px;
-      max-width: 90%;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #00c2ff;
-      color: #000;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
+    @media (max-width:620px){
+      .grid-3{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .cta{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>GuardianEye</h1>
-    <p>The Eye That Never Sleeps</p>
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="wrap navrow">
+      <div class="brand">
+        <img src="assets/copilot_image_1757525514722.jpeg" alt="GuardianEye logo"/>
+        <span>GuardianEye</span>
+      </div>
+      <div class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#usecases">Use Cases</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#book">Book Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="wrap hero">
+    <div class="hero-inner">
+      <div class="hero-card">
+        <div class="logo-box">
+          <img src="assets/copilot_image_1757525514722.jpeg" alt="GuardianEye mark"/>
+        </div>
+        <div class="kicker">The Eye That Never Sleeps</div>
+        <h1>AI-Powered Real-Time Safety</h1>
+        <p class="lede">
+          GuardianEye connects to your existing cameras and maps to detect threats,
+          falls, fights, intrusions, and more — then alerts parents, staff, or
+          authorities instantly.
+        </p>
+        <div class="cta" id="book">
+          <a class="btn" href="https://calendly.com/your-demo-link/15min" target="_blank" rel="noopener">Start Pilot — $250 / 90 days</a>
+          <a class="btn secondary" href="#contact">Ask a Question</a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video id="promo"
+               autoplay
+               muted
+               playsinline
+               loop
+               preload="metadata"
+               poster="assets/copilot_image_1757525514722.jpeg"
+               style="box-shadow:0 10px 30px rgba(0,0,0,.35);">
+          <source src="lv_0_20250910164918.mp4" type="video/mp4" />
+          <source src="assets/lv_0_20250910164918.mp4" type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <main>
-    <p>AI-Powered Real-Time Safety for Schools, Elder Care, and Communities.</p>
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="wrap features">
+    <h2 class="section-title">Key Features</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="badge">Real-Time Video AI</span>
+        <h3>Threat, Intrusion & Fight Detection</h3>
+        <p class="small">Detects weapons, perimeter breaches, and violent behavior with low false-positives.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Instant Alerts</span>
+        <h3>Parents • Staff • Authorities</h3>
+        <p class="small">SMS, email, and app push with snapshots and location.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Automation</span>
+        <h3>Response Workflows</h3>
+        <p class="small">Trigger lock-downs, sirens, or dispatch alerts based on severity.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Multi-Camera</span>
+        <h3>Cross-camera Tracking</h3>
+        <p class="small">Follows a subject across cameras to reduce blind spots.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Privacy-First</span>
+        <h3>Auditing & Role Controls</h3>
+        <p class="small">Strict access control and detailed audit trails built-in.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Fast Deploy</span>
+        <h3>Works With What You Have</h3>
+        <p class="small">No rip-and-replace: connect existing IP cameras and maps.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Video Embed -->
-    <video autoplay muted loop playsinline controls>
-      <source src="assets/guardianeye-demo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <!-- ===== USE CASES ===== -->
+  <section id="usecases" class="wrap usecases">
+    <h2 class="section-title">Who It Helps</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Schools & Campuses</h3>
+        <p class="small">Weapon detection, perimeter breach, fight detection, arrival/exit snapshots for guardians.</p>
+      </div>
+      <div class="card">
+        <h3>Elder Care</h3>
+        <p class="small">Fall detection, wandering alerts, staff-assist button routes nearest responders.</p>
+      </div>
+      <div class="card">
+        <h3>Communities & Facilities</h3>
+        <p class="small">Parking lots, parks, small venues — deter and detect threats before they escalate.</p>
+      </div>
+    </div>
+  </section>
 
-    <br>
-    <a href="#contact" class="cta">Start Pilot — $250 / 90 days</a>
-  </main>
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="wrap pricing">
+    <h2 class="section-title">Pilot Pricing</h2>
+    <div class="pricebox">
+      <div class="card">
+        <div class="price">$250</div>
+        <div class="small">90-day guided pilot • up to 4 cameras • configuration included</div>
+        <ul class="small">
+          <li>Connect your existing cameras</li>
+          <li>Threat, intrusion, fall & fight detectors</li>
+          <li>Instant SMS / email alerts with snapshots</li>
+          <li>Weekly tuning to reduce false positives</li>
+        </ul>
+        <div class="cta">
+          <a class="btn" href="https://calendly.com/your-demo-link/15min" target="_blank" rel="noopener">Book a 15-min Call</a>
+          <a class="btn secondary" href="#contact">Request a Quote</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>After the Pilot</h3>
+        <p class="small">Scale by site or camera. We’ll right-size a plan that fits your risk profile and budget.</p>
+        <div class="trust">
+          <span>Fast setup</span><span>No hardware swap</span><span>Cancel anytime</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="wrap contact">
+    <h2 class="section-title">Talk to a Human</h2>
+    <div class="card">
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input name="name" placeholder="Full name" required />
+        <input name="email" type="email" placeholder="Work email" required />
+        <input name="org" placeholder="Organization (optional)" />
+        <textarea name="message" rows="5" placeholder="What challenge are you trying to solve?" required></textarea>
+        <button class="btn" type="submit">Send</button>
+        <div class="small">Prefer email? <a href="mailto:hello@jeosync.com">hello@jeosync.com</a></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="note">© <span id="y"></span> GeoSync • GuardianEye</div>
+      <div class="note"><a href="#pricing">Pricing</a> · <a href="#features">Features</a> · <a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // ensure video plays on user tap on iOS if autoplay is blocked
+    const v = document.getElementById('promo');
+    const tryPlay = () => v.play().catch(()=>{});
+    document.addEventListener('visibilitychange', tryPlay, {passive:true});
+    document.addEventListener('click', tryPlay, {once:true, passive:true});
+
+    // smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+    });
+  </script>
 </body>
 </html>
