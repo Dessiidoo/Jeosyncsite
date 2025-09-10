@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>GuardianEye — AI-Powered Real-Time Safety</title>
+  <meta name="description" content="GuardianEye delivers real-time alerts, safe-zone mapping, and multi-camera verification to protect schools, elder care, and communities. Start a 90-day pilot for $250."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--brand:#00C2FF;--bg1:#0a0f1e;--bg2:#0f1b33;}
+    body{background:radial-gradient(80% 60% at 50% 0%, var(--bg2), var(--bg1));color:#e5e7eb;font-family:sans-serif}
+    .glass{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}
+    .glow{box-shadow:0 0 0 2px rgba(0,194,255,.15),0 0 32px rgba(0,194,255,.12)}
+    .wordmark{font-weight:800;letter-spacing:-.02em}
+  </style>
+</head>
+<body class="antialiased">
+<header class="p-4 flex items-center justify-between sticky top-0 bg-black/30 backdrop-blur">
+  <div class="flex items-center gap-2">
+    <img src="/assets/guardianeye-logo.png" alt="GuardianEye" class="h-9 w-9 glow rounded-full"/>
+    <div class="wordmark text-xl">Guardian<span class="text-[var(--brand)]">Eye</span></div>
+  </div>
+  <a href="#contact" class="px-4 py-2 rounded-xl bg-[var(--brand)] text-black font-semibold">Book Demo</a>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 py-20 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold wordmark">The Eye That Never Sleeps</h1>
+    <p class="mt-4 text-lg text-slate-300">AI-Powered Real-Time Safety for Schools, Elder Care, and Communities.</p>
+    <a href="#pilot" class="mt-6 inline-block px-6 py-3 rounded-xl bg-[var(--brand)] text-black font-semibold">Start Pilot — $250 / 90 days</a>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" class="max-w-4xl mx-auto px-6 pb-12">
+    <div class="glass rounded-2xl overflow-hidden glow">
+      <video controls class="w-full aspect-video bg-black">
+        <source src="/assets/guardianeye-demo.mp4" type="video/mp4"/>
+      </video>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">Key Features</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">Real-Time Video AI</h3><p>Weapon, intrusion, fall, and fight detection.</p></div>
+      <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">Instant Alerts</h3><p>SMS, email, and app push notifications with snapshots.</p></div>
+      <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">Response Automation</h3><p>Trigger locks, sirens, or dispatch alerts instantly.</p></div>
+      <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">Privacy Built-In</h3><p>Role-based access, audit logs, and redaction tools.</p></div>
+      <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">Works With Existing Systems</h3><p>Plug into IP cameras, NVRs, GPS devices.</p></div>
+      <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">Reports & Analytics</h3><p>Heatmaps, incident timelines, exportable evidence.</p></div>
+    </div>
+  </section>
+
+  <!-- PILOT -->
+  <section id="pilot" class="max-w-3xl mx-auto px-6 py-12 text-center">
+    <h2 class="text-3xl font-bold mb-3">Start with a 90-Day Pilot</h2>
+    <p class="text-slate-300 mb-6">Try GuardianEye at your site with your current hardware.</p>
+    <div class="glass rounded-2xl p-8 inline-block text-left">
+      <div class="text-4xl font-extrabold text-white">$250</div>
+      <p class="text-slate-400">Single site • 90 days</p>
+      <ul class="mt-4 space-y-2 text-slate-300 text-sm">
+        <li>• Setup on your existing cameras</li>
+        <li>• Live alerts & weekly reports</li>
+        <li>• Staff onboarding session</li>
+        <li>• Credit toward full deployment</li>
+      </ul>
+      <a href="#contact" class="mt-6 inline-block px-5 py-3 rounded-xl bg-[var(--brand)] text-black font-semibold">Reserve Pilot Slot</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-12">
+    <div class="glass rounded-2xl p-8">
+      <h2 class="text-2xl font-bold mb-3">Request a Demo</h2>
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="grid gap-4">
+        <input name="name" placeholder="Full name" class="glass rounded-xl px-4 py-3"/>
+        <input type="email" name="email" placeholder="Work email" class="glass rounded-xl px-4 py-3"/>
+        <textarea name="message" rows="4" placeholder="Tell us about your site" class="glass rounded-xl px-4 py-3"></textarea>
+        <button class="px-5 py-3 rounded-xl bg-[var(--brand)] text-black font-semibold">Send</button>
+      </form>
+      <p class="mt-4 text-sm text-slate-400">Or email: <a href="mailto:info@jeosync.com" class="text-[var(--brand)]">info@geosync.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="py-8 text-center text-sm text-slate-500">
+  © <span id="yr"></span> GuardianEye by JeoSync
+</footer>
+<script>document.getElementById("yr").textContent=new Date().getFullYear()</script>
+</body>
+</html>
